@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Volume Calculator</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<script language="javascript">
+			function openCalculator(sel, volumeCal) {
+			  // Declare all variables
+		  		var i, tabcontent, tablinks;
+
+			  // Get all elements with class="tabcontent" and hide them
+		  		tabcontent = document.getElementsByClassName("tabcontent");
+			  	for (i = 0; i < tabcontent.length; i++) {
+			    	tabcontent[i].style.display = "none";
+			  	}
+
+			  // Get all elements with class="tablinks" and remove the class "active"
+			  	tablinks = document.getElementsByClassName("tablinks");
+			  	for (i = 0; i < tablinks.length; i++) {
+			    	tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  	}
+
+			  // Show the current tab, and add an "active" class to the button that opened the tab
+			  	document.getElementById(volumeCal).style.display = "block";
+			  	sel.currentTarget.className += " active";
+
+			  	// document.getElementById("defaultOpen").click();
+			}
+		</script>
+	</head>
+
+	<body class = "container">
+		<header>Volume Calculator</header>
+
+		<div class= "home">
+			<!-- <h2>WELCOME TO MY VOLUME CALCULATOR!</h2> -->
+		</div>
+
+		<div class="tab">
+	  		<button class="tablinks" onclick="openCalculator(event, 'Sphere')">Sphere</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'TriangularPrism')">Triangular Prism</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'RectangularPrism')">Rectangular Prism</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'Cylinder')">Cylinder</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'TriangularPyramid')">Triangular Pyramid</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'Cone')">Cone</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'Pyramid')">Pyramid</button>
+	  		<button class="tablinks" onclick="openCalculator(event, 'Cube')">Cube</button>
+		</div>
+
+		<div id="Sphere" class="tabcontent">
+			<div class="vol">
+		  		<h3>Sphere Volume</h3>
+		  		<label for="radius">Radius: </label>
+				<input type="number" id ="rad" name="RADIUS">
+				<br>
+
+				<input type="submit" name="sphereCal" value="Calculate"
+					onclick="sphere();">
+				<br>
+
+				<img class = "img" src="img/sphere.png" width = "100">
+			</div>
+		</div>
+
+		<div id="TriangularPrism" class="tabcontent">
+	  		<div class="vol">
+		  		<h3>Triangular Prism Volume</h3>
+
+		  		<label for="tBase">Triangle Base: </label>
+		  		<input type="number" id="base" name="TBASE">
+		  		<br>
+
+		  		<label for="tHeight">Triangle Height: </label>
+		  		<input type="number" id="tHeight" name="THEIGHT">
+		  		<br>
+
+		  		<label for="pHeight">Prism Height: </label>
+		  		<input type="number" id="pHeight" name="PHEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="triPrismCal" value="Calculate"
+		  			onclick="TriangularPrism();">
+		  		<br>
+
+		  		<img class = "img" src="img/triangle_prism.png" width = "100">
+		  	</div>
+		</div>
+
+		<div id="RectangularPrism" class="tabcontent">
+			<div class="vol">
+		  		<h3>Rectangular Prism Volume</h3>
+
+		  		<label for="length">Length: </label>
+		  		<input type="number" id="length" name="LENGTH">
+		  		<br>
+
+		  		<label for="width">Width: </label>
+		  		<input type="number" id="width" name="WIDTH">
+		  		<br>
+
+		  		<label for="height">Height: </label>
+		  		<input type="number" id="height" name="HEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="recPrismCal" value="Calculate"
+		  			onclick="RectangularPrism();">
+		  		<br>
+
+		  		<img class = "img" src="img/rectangle_prism.png" width = "100">
+		  	</div>
+		</div>
+
+		<div id="Cylinder" class="tabcontent">
+			<div class="vol">
+	  			<h3>Cylinder Volume</h3>
+
+		  		<label for="radius">Radius: </label>
+		  		<input type="number" id="radius" name="RADIUS">
+		  		<br>
+
+		  		<label for="height">Height: </label>
+		  		<input type="number" id="height" name="HEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="cylinderCal" value="Calculate"
+		  			onclick="Cylinder();">
+		  		<br>
+
+	  			<img class = "img" src="img/cylinder.png" width = "100">
+	  		</div>
+		</div>
+			
+		<div id="TriangularPyramid" class="tabcontent">
+  			<div class="vol">
+  				<h3>Triangular Pyramid Volume</h3>
+
+		  		<label for="tBase">Triangle Base: </label>
+		  		<input type="number" id="tBase" name="TBASE">
+		  		<br>
+
+		  		<label for="tHeight">Triangle Height: </label>
+		  		<input type="number" id="tHeight" name="THEIGHT">
+		  		<br>
+
+		  		<label for="pHeight">Pyramid Height: </label>
+		  		<input type="number" id="pHeight" name="PHEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="triPyraCal" value="Calculate"
+		  			onclick="TriangularPyramid();">
+		  		<br>
+				
+				<img class = "img" src="img/triangle_pyramid.png" width = "100">
+			</div>
+		</div>
+
+			
+		<div id="Cone" class="tabcontent">
+			<div class="vol">
+	  			<h3>Cone Volume</h3>
+		  		<label for="radius">Radius: </label>
+
+		  		<input type="number" id="radius" name="RADIUS">
+		  		<br>
+
+		  		<label for="height">Height: </label>
+		  		<input type="number" id="height" name="HEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="coneCal" value="Calculate"
+		  			onclick="Cone();">
+		  		<br>
+
+  				<img class = "img" src="img/cone.png" width = "100">
+			</div>
+		</div>
+
+		<div id="Pyramid" class="tabcontent">
+			<div class="vol">
+	  			<h3>Pyramid Volume</h3>
+
+		  		<label for="length">Length: </label>
+		  		<input type="number" id="length" name="LENGTH">
+		  		<br>
+
+		  		<label for="width">Width: </label>
+		  		<input type="number" id="width" name="WIDTH">
+		  		<br>
+
+		  		<label for="height">Height: </label>
+		  		<input type="number" id="height" name="HEIGHT">
+		  		<br>
+
+		  		<input type="submit" id="pyramidCal" value="Calculate"
+		  			onclick="Pyramid();">
+		  		<br>	  			
+	  			<img class = "img" src="img/pyramid.png" width = "100">
+			</div>
+		</div>
+			
+		<div id="Cube" class="tabcontent">
+			<div class="vol">
+	  			<h3>Cube Volume</h3>
+
+				<label for="edge">Edge: </label>
+		  		<input type="number" id="edge" name="EDGE">
+		  		<br>
+		  		
+	  			<img class = "img" src="img/cube.png" width = "100">
+			</div>
+		</div>
+			
+	</body>
+
+	<footer class = "footer">Calculator ©Revyra Phoebe Fransiska 2019</footer>
+
+</html>
